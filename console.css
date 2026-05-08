@@ -1,0 +1,69 @@
+/* Import a raw monospace font to emulate an LCD screen */
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+body {
+  background-color: #1a1a1a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+/* The outer hardware case */
+.console-chassis {
+  background-color: #d1d5db; /* Industrial light grey */
+  padding: 30px;
+  border: 8px outset #f3f4f6;
+  border-radius: 4px;
+  box-shadow: 10px 10px 20px rgba(0,0,0,0.8);
+  width: 320px;
+}
+
+/* The 16-character screen */
+.lcd-screen {
+  background-color: #0f172a;
+  border: 6px inset #475569;
+  padding: 15px 10px;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lcd-text {
+  font-family: 'VT323', monospace;
+  color: #10b981; /* High-contrast retro green */
+  font-size: 2.5rem;
+  letter-spacing: 4px;
+  text-shadow: 0 0 5px #10b981;
+  white-space: pre; /* Preserves the exact 16 character spacing */
+}
+
+/* Bolted down buttons */
+.button-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.tactile-btn {
+  background-color: #94a3b8;
+  color: #0f172a;
+  font-weight: bold;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.9rem;
+  padding: 20px 10px;
+  border: 5px outset #cbd5e1;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.05s ease;
+}
+
+/* The magic that makes it feel like a physical button press */
+.tactile-btn:active {
+  border: 5px inset #cbd5e1;
+  background-color: #64748b;
+  transform: scale(0.98);
+}
